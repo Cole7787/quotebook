@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>Quotebook</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body ng-controller="MainController">
+    <ul ng-repeat="quote in quotes | filter: quote.textToRemove track by $index">
+      <li>"{{quote.text}}"</li>
+      <br/>
+      <span>  - {{quote.author}}</span>
+      <br/>
+      <button type="button" name="button" ng-click="delete($index)">Delete</button>
+    </ul>
+    <br/>
+    <input type="text" ng-model="quote.text" placeholder="Enter a quote">
+    <input type="text" ng-model="quote.author" placeholder="Enter the author">
+    <button ng-click="addQuotes()">Add New Quote</button>
+    <br/>
+    <br/>
+    <input type="text" ng-model="quote.textToRemove"placeholder="Enter a quote">
+    <input type="text" ng-model="quote.authorToRemove" placeholder="Enter the author">
+    <button ng-click="removeQuotes(quote)">Remove a Quote</button>
+
+
+
+
+
+
+
+
+
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+     <script src="app.js"></script>
+     <script src="mainController.js"></script>
+     <script src="MainService.js"></script>
+
+     </script>
+  </body>
+</html>
